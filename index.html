@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Follower Clash Daily</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" id="appRoot">
+      <section class="panel setup" id="setupPanel">
+        <h1>Follower Clash Daily</h1>
+        <p class="sub">Paste followers, hit start, record. Setup hides during battle.</p>
+
+        <label for="followersInput">Follower usernames (one per line)</label>
+        <textarea id="followersInput" placeholder="@alex\n@sam\n@jordan"></textarea>
+
+        <div class="controls-row">
+          <label for="csvInput" class="file-label">Import .txt/.csv</label>
+          <input id="csvInput" type="file" accept=".txt,.csv" />
+
+          <label for="teamCount">Teams</label>
+          <select id="teamCount">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+          </select>
+
+          <label for="eventCount">Events</label>
+          <select id="eventCount">
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+          </select>
+        </div>
+
+        <div class="controls-row">
+          <button id="useDemo">Use Demo Followers</button>
+          <button id="startBtn" class="primary">Start Battle</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel battle" id="battlePanel">
+        <header class="hud">
+          <div id="statusText">Waiting to start…</div>
+          <div class="hud-right">
+            <div id="eventText">Event: none</div>
+            <button id="backBtn" class="ghost hidden">Back to Setup</button>
+          </div>
+        </header>
+        <div id="arena3d" aria-label="3D battle arena"></div>
+        <div id="overlayLayer"></div>
+        <footer class="scoreboard" id="scoreboard"></footer>
+      </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
